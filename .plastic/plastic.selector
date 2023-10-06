@@ -1,0 +1,4 @@
+repository "Escape The Gay@TeamGay@cloud"
+  path "/"
+    br "/main"
+    co "/main"
