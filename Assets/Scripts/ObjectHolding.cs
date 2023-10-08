@@ -9,6 +9,7 @@ public class ObjectHolding : MonoBehaviour {
 	private GameObject player;
     //private Vector3 rot = new Vector3(0, 20, 0);
 	private float playerY = 0;
+    private Vector3 rot = new Vector3 (0, 20, 0);
 	private Vector3 objectRotation = new Vector3 (0, 0, 0);
 	private Vector3 mouseVelocity = new Vector3 (0, 0, 0);
 	// Use this for initialization
@@ -33,7 +34,8 @@ public class ObjectHolding : MonoBehaviour {
 
             currentObject.GetComponent<Rigidbody>().AddForce(((transform.position + transform.forward * 2) - currentObject.transform.position) * 200);
 
-            /*if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            print(Input.GetAxis("Mouse ScrollWheel"));
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
                 //currentObject.transform.rotation = Quaternion.Slerp(currentObject.transform.rotation, Quaternion.Euler(currentObject.transform.rotation.x, currentObject.transform.rotation.y, currentObject.transform.rotation.z), Time.deltaTime * 10f);
 
@@ -42,24 +44,9 @@ public class ObjectHolding : MonoBehaviour {
             }else if(Input.GetAxis("Mouse ScrollWheel") < 0f)
             {
 				currentObject.transform.Rotate (-rot);
-            }*/
+            }
         }
-        /*if (Input.GetMouseButtonDown(2))
-        {
-            if (rot.y == 20)
-            {
-                rot = new Vector3(20, 0, 0);
-            }
-            else if (rot.x == 20)
-            {
-                rot = new Vector3(0, 0, 20);
-            }
-            else if (rot.z == 20)
-            {
-                rot = new Vector3(0, 20, 0);
-            }
-        }*/
-
+        
 		if (Input.GetMouseButton (2) && currentObject) {
 			float mouseX = Input.GetAxis ("Mouse X");
 			float mouseY = Input.GetAxis ("Mouse Y");
@@ -75,10 +62,10 @@ public class ObjectHolding : MonoBehaviour {
 			}
 			currentObject.transform.eulerAngles = transform.eulerAngles + mouseVelocity;
 		} else if(currentObject) {
-			currentObject.transform.eulerAngles = new Vector3(transform.eulerAngles.x + mouseVelocity.x, transform.eulerAngles.y + mouseVelocity.y, transform.eulerAngles.z);
+			//currentObject.transform.eulerAngles = new Vector3(transform.eulerAngles.x + mouseVelocity.x, transform.eulerAngles.y + mouseVelocity.y, transform.eulerAngles.z);
 
-			player.GetComponent<FirstPersonController> ().m_MouseLook.XSensitivity = 2;
-			player.GetComponent<FirstPersonController> ().m_MouseLook.YSensitivity = 2;
+			//player.GetComponent<FirstPersonController> ().m_MouseLook.XSensitivity = 2;
+			//player.GetComponent<FirstPersonController> ().m_MouseLook.YSensitivity = 2;
 		}
 	}
 
